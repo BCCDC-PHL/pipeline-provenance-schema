@@ -1,0 +1,10 @@
+- pipeline_name: BCCDC-PHL/test
+  pipeline_version: v0.2.1
+- input_filename: test.fa
+  input_path: /path/to/test.fa
+  sha256: f5daf7b1c4e69ddc249d58b77c12195f0c972a389dd3063332b668cc00abb975
+- process_name: test_process
+  tool_name: test
+  parameters:
+    - parameter: test_param
+      value: 0
