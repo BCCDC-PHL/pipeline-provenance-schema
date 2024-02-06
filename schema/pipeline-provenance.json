@@ -72,6 +72,54 @@
 			"CALL_VARIANTS"
 		    ]
 		},
+		"tools": {
+		    "type": "array",
+		    "description": "The tools used to run the process.",
+		    "items": {
+			"$ref": "#/definitions/Tool"
+		    },
+		    "examples": [
+			[
+			    {
+				"tool_name": "fastp",
+				"tool_version": "0.20.0",
+				"subcommand": "trim",
+				"parameters": [
+				    {
+					"parameter": "cut_tail",
+					"value": null
+				    }
+				]
+			    }
+			],
+			[
+			    {
+				"tool_name": "bwa",
+				"tool_version": "0.7.17-r1188",
+				"subcommand": "mem",
+				"parameters": [
+				    {
+					"parameter": "exclude_flags",
+					"value": 1540
+				    },
+				    {
+					"parameter": "min_base_quality",
+					"value": 20
+				    }
+				]
+			    }
+			]
+		    ]
+		}
+	    },
+	    "required": [
+		"process_name"
+	    ]
+	},
+	"Tool": {
+	    "title": "Tool",
+	    "type": "object",
+	    "properties": {
 		"tool_name": {
 		    "type": "string",
 		    "description": "Name of the tool.",
@@ -84,7 +132,7 @@
 		    ]
 		},
                 "tool_version": {
-                    "$ref": "#/definitions/ToolVersion",
+                    "type": "string",
                     "description": "A number or string associated with a specific snapshot of the development state of a tool. Should (but may not always) map to a tagged release on GitHub or another version control system.",
                     "examples": [
                         "0.1.0",
@@ -105,6 +153,9 @@
 		},
                 "parameters": {
                     "type": "array",
+		    "items": {
+			"$ref": "#/definitions/ToolParameter"
+		    },
                     "description": "The specific invocation of a process may depend on values that can be varied. These values are the parameters to that process. Each parameter has a name and a value.",
                     "examples": [
                         [
@@ -133,11 +184,35 @@
                         ]
                     ]
                 }
+	    }
+	},
+	"ToolParameter": {
+	    "title": "ToolParameter",
+	    "type": "object",
+	    "properties": {
+		"parameter": {
+		    "type": "string",
+		    "description": "Name of the parameter.",
+		    "examples": [
+			"cut_tail",
+			"exclude_flags",
+			"min_base_quality",
+			"min_coverage"
+		    ]
+		},
+		"value": {
+		    "type": "string",
+		    "description": "Value of the parameter, or null if the parameter is a flag without a value.",
+		    "examples": [
+			"null",
+			"1540",
+			"20",
+			"10"
+		    ]
+		}
 	    },
 	    "required": [
-		"process_name",
-		"tool_name",
-		"tool_version"
+		"parameter"
 	    ]
 	},
 	"InputFileProvenanceRecord": {

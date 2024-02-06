@@ -12,7 +12,13 @@ def main(args):
         schema = json.load(f)
     with open(args.provenance) as f:
         provenance = yaml.load(f, Loader=yaml.BaseLoader)
-    validate(provenance, schema)
+
+    try:
+        validate(provenance, schema)
+        print('Provenance file is valid')
+    except Exception as e:
+        print(e)
+        exit(1)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
