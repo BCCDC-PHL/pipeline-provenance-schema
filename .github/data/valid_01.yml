@@ -1,10 +1,29 @@
-- pipeline_name: BCCDC-PHL/test
-  pipeline_version: v0.2.1
-- input_filename: test.fa
-  input_path: /path/to/test.fa
-  sha256: f5daf7b1c4e69ddc249d58b77c12195f0c972a389dd3063332b668cc00abb975
-- process_name: test_process
-  tool_name: test
-  parameters:
-    - parameter: test_param
-      value: 0
+- pipeline_name: BCCDC-PHL/alignment
+  pipeline_version: v0.1.0
+  nextflow_session_id: ee5b4986-6ada-4eab-a294-ed0cbb18427d
+  nextflow_run_name: furious_murdock
+  analysis_start_time: 2024-02-01T16:37:26.062501-08:00
+- input_filename: sample-01_R1.fastq.gz
+  file_type: fastq-input
+  sha256: ec0e1b2ffd570244aacc82e2ac0f75b1ff8dba403df66696e4896c6b11b00907
+- input_filename: sample-01_R1.fastq.gz
+  file_type: fastq-input
+  sha256: 27b3f66f6111dc754abd6e5c7218098de77d071938bd399a4033697feb8c66a8
+- process_name: fastp
+  tools:
+    - tool_name: fastp
+      tool_version: 0.20.1
+      parameters:
+        - parameter: --cut_tail
+          value: null
+- process_name: bwa_mem
+  tools:
+    - tool_name: bwa
+      tool_version: 0.7.17
+      subcommand: mem
+    - tool_name: samtools
+      tool_version: 1.19.2
+      subcommand: view
+      parameters:
+        - parameter: -F
+          value: 1540
