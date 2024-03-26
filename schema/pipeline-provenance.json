@@ -222,7 +222,7 @@
     "InputFileProvenanceRecord": {
       "title": "InputFileProvenanceRecord",
       "type": "object",
-      "anyOf": [
+      "oneOf": [
         {
           "required": [
             "filename"
@@ -288,6 +288,18 @@
   "OutputFileProvenanceRecord": {
     "title": "OutputFileProvenanceRecord",
     "type": "object",
+    "oneOf": [
+      {
+        "required": [
+          "filename"
+        ]
+      },
+      {
+        "required": [
+          "output_filename"
+        ]
+      }
+    ],
     "properties": {
       "output_filename": {
         "type": "string",
