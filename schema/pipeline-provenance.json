@@ -283,67 +283,67 @@
           ]
         }
       }
-    }
-  },
-  "OutputFileProvenanceRecord": {
-    "title": "OutputFileProvenanceRecord",
-    "type": "object",
-    "oneOf": [
-      {
-        "required": [
-          "filename"
-        ]
-      },
-      {
-        "required": [
-          "output_filename"
-        ]
-      }
-    ],
-    "properties": {
-      "output_filename": {
-        "type": "string",
-        "description": "Filename of an output file.",
-        "examples": [
-          "sample-01.bam",
-          "sample-01.bam.bai",
-          "sample-01.vcf",
-          "sample-01.vcf.gz"
-        ]
-      },
-      "filename": {
-        "type": "string",
-        "description": "Filename of an output file. Alias for 'output_filename'.",
-        "examples": [
-          "sample-01.bam",
-          "sample-01.bam.bai",
-          "sample-01.vcf",
-          "sample-01.vcf.gz"
-        ]
-      },
-      "file_path": {
-        "type": "string",
-        "description": "Absolute path to an output file, at the time that the pipeline was invoked. May be invalid if the output file is moved or renamed after pipeline invocation.",
-        "examples": [
-          "/data/analysis/outbreak_surveillance/210101_M00123_0123_000000000-ABC123/alignment-v0.1-output/sample-01/sample-01.bam",
-          "/data/analysis/outbreak_surveillance/210101_M00123_0123_000000000-ABC123/assembly-v0.1-output/sample-01/sample-01.fa"
-        ]
-      },
-      "sha256": {
-        "type": "string",
-        "description": "The checksum of a file, calculated with the SHA256 algorithm. Files with identical contents have identical checksums. If a single byte differs, the checksums will be completely different.",
-        "examples": [
-          "b0534592d61321243897e842a9ea655d396d4496cbf6d926b6c6fea8e06aa98d",
-          "cc66309103da91e337143eb649196d84ed3ebe2ff08a45b197cd4151d137a167"
-        ]
-      },
-      "file_size": {
-        "type": "integer",
-        "description": "Size of the file in bytes.",
-        "examples": [
-          123456789,
-          1234567890
-        ]
+    },
+    "OutputFileProvenanceRecord": {
+      "title": "OutputFileProvenanceRecord",
+      "type": "object",
+      "oneOf": [
+        {
+          "required": [
+            "filename"
+          ]
+        },
+        {
+          "required": [
+            "output_filename"
+          ]
+        }
+      ],
+      "properties": {
+        "output_filename": {
+          "type": "string",
+          "description": "Filename of an output file.",
+          "examples": [
+            "sample-01.bam",
+            "sample-01.bam.bai",
+            "sample-01.vcf",
+            "sample-01.vcf.gz"
+          ]
+        },
+        "filename": {
+          "type": "string",
+          "description": "Filename of an output file. Alias for 'output_filename'.",
+          "examples": [
+            "sample-01.bam",
+            "sample-01.bam.bai",
+            "sample-01.vcf",
+            "sample-01.vcf.gz"
+          ]
+        },
+        "file_path": {
+          "type": "string",
+          "description": "Absolute path to an output file, at the time that the pipeline was invoked. May be invalid if the output file is moved or renamed after pipeline invocation.",
+          "examples": [
+            "/data/analysis/outbreak_surveillance/210101_M00123_0123_000000000-ABC123/alignment-v0.1-output/sample-01/sample-01.bam",
+            "/data/analysis/outbreak_surveillance/210101_M00123_0123_000000000-ABC123/assembly-v0.1-output/sample-01/sample-01.fa"
+          ]
+        },
+        "sha256": {
+          "type": "string",
+          "description": "The checksum of a file, calculated with the SHA256 algorithm. Files with identical contents have identical checksums. If a single byte differs, the checksums will be completely different.",
+          "examples": [
+            "b0534592d61321243897e842a9ea655d396d4496cbf6d926b6c6fea8e06aa98d",
+            "cc66309103da91e337143eb649196d84ed3ebe2ff08a45b197cd4151d137a167"
+          ]
+        },
+        "file_size": {
+          "type": "integer",
+          "description": "Size of the file in bytes.",
+          "examples": [
+            123456789,
+            1234567890
+          ]
+        }
       }
     }
   }
